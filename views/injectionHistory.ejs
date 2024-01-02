@@ -11,8 +11,7 @@
 <body>
     <%- include('./partials/navbar') %>
 
-    <!-- <h1>this is the injection history page</h1>
-
+    <!-- 
     <ul id="itemList">
         <% items.forEach((item) => { %>
           <li>
@@ -25,7 +24,10 @@
           </li>
           <button onclick="deleteItem('<%= item.id %>')">Delete</button>
         <% }); %>
-    </ul> -->
+    </ul>
+    -->
+
+    <h1>Injection History</h1>
 
     <div class="flex flex-col mt-16">
       <div class="-m-1.5 overflow-x-auto">
@@ -49,7 +51,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><%= item.created_at.slice(0,10) %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"><%= `${item.name} ${item.surname}` %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><%= item.weight %></td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><%= item.over_18 ? 'over 18' : 'under 18' %></td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><%= item.over_18 ? 'Over 18' : 'Under 18' %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><%= item.male ? 'male' : 'female'%></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><%= item.medication %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
@@ -64,8 +66,6 @@
       </div>
     </div>
     
-
-
     <script src="/node_modules/preline/dist/preline.js"></script>
     <script src="/js/script.js"></script>
 </body>
