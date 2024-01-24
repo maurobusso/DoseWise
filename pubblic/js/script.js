@@ -94,5 +94,5 @@ async function deleteMedication(id) {
 //show form in medications.ejs
 function showForm(){
   document.getElementById('addMedication').removeAttribute('hidden')
-  document.getElementById('newAnaestheticButton').setAttribute('hidden', 'true')
+  document.getElementById('newAnaestheticButton').style.display = 'none' 
 }
