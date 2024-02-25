@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- for tailwind -->
+    <!-- <link rel="stylesheet" href="/css/output.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <h1>this is the injection history page</h1>
+
+    <ul id="itemList">
+        <% items.forEach((item) => { %>
+          <li>
+            <span>Name: <%= item.name %></span>
+            <span>Surname: <%= item.surname %></span>
+            <span>Weight: <%= item.weight %></span>
+            <span>Age: <%= item.over_18 ? 'over 18' : 'under 18' %></span>
+            <span>Sex: <%= item.male ? 'male' : 'female'%></span>            
+          </li>
+          <button onclick="deleteItem('<%= item.id %>')">Delete</button>
+        <% }); %>
+    </ul>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

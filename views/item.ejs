@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item</title>
+  <link rel="stylesheet" href="/css/styles.css">
+    <!-- for tailwind -->
+    <!-- <link rel="stylesheet" href="/css/output.css"> -->
+</head>
+<body>
+  <%- include('./partials/navbar') %>
+
+  <h1>New Patient</h1>
+
+  <form id="updateForm" action="/patient" method="POST">
+    <!-- <input type="hidden" name="id" id="updateId">  -->
+    <input type="text" name="name" id="updateName" placeholder="name" required><br><br>
+    <input type="text" name="surname" id="updateName" placeholder="Surname" required><br><br>
+    <input type="number" name="weight" id="updateName" placeholder="Weight Kg" required><br><br>
+
+    <input type="checkbox" name="over_18" id="updateName" placeholder="over18">
+    <label for="over_18">Over 18</label><br>
+    
+    <input onchange="toggleMaleFemale()" type="checkbox" name="male" id="male" placeholder="Male">
+    <label for="male">Male</label>
+    
+    <input onchange="toggleMaleFemale()" type="checkbox" name="female" id="female" placeholder="Female">
+    <label for="female">Female</label><br><br>
+    <!-- this button actually send to the server -->
+    <button onclick="calculateDosage(),toggleMedications()" type="submit" id="resultButton">Calculate</button><br><br>
+    
+    <!-- <label for="result">Result</label><br>
+    <input type="number" name="result" id="result"><br><br> -->
+  </form>
+
+
+  <ul id="medicationsList" hidden>
+    <h1>medications</h1>
+    <% medications.forEach((la) => { %>
+      <li>
+          <span><%= la.name %></span>
+          <span>Maximum safe dosage(msd): <%= la.mas %></span>
+          <span>Msd (children): <%= la.msd_for_children %></span>
+          <span>concentration: <%= la.concentration %></span>
+      </li>
+    <% }); %>
+  </ul>
+
+  <table>
+    <tr>
+       <th>Local Anaesthetic</th><th>Adult maximum dose</th><th>Child maximum dose</th>
+    </tr>
+ 
+    <% for (var i = 0; i < medications.length; i++) { %>
+     <tr>
+       <td><%= medications[i].name %></td>
+       <td><%= medications[i].msd %></td>
+       <td><%= medications[i].msd_for_children %></td>
+       <td><%= medications[i].concentration %></td>
+     </tr>    
+    <% } %>
+ </table>
+
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

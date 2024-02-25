@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- for tailwind -->
+  <!-- <link rel="stylesheet" href="/css/output.css"> -->
+</head>
+<body>
+  <%- include('./partials/navbar') %>
+  <h1>Anaesthetics</h1>
+
+    <ul>
+        <% medications.forEach((la) => { %>
+            <li>
+                <span>Name: <%= la.name %></span>
+                <span>Maximum safe dosage(msd): <%= la.msd %></span>
+                <span>Msd (children): <%= la.msd_for_children %></span>
+                <span>concentration: <%= la.concentration %></span>
+
+                <button onclick="editMedication('<%= la.id %>', '<%= la.name %>', '<%= la.mas %>', '<%= la.concentration %>')">Edit</button>
+                <button onclick="deleteMedication('<%= la.id %>')">Delete</button>
+            </li>
+        <% }); %>
+    </ul>
+
+    <form id="addMedication" action="/add" method="POST" hidden>
+      <input type="text" name="name" placeholder="name" id="la-name" required>
+      <input type="number" step="0.01" name="msd" placeholder="Maximum safe dosage(mg)" id="msd" required>
+      <input type="number" step="0.01" name="msd_for_children" placeholder="msd for children" id="msd_for_children"required>
+      <input type="number" step="0.01" name="concentration" placeholder="concentration(%)" id="concentration" required>
+      <button type="submit">Add Anaesthetic</button>
+    </form>
+  
+    <button onclick="showForm()" id="newAnaestheticButton">Add Anaesthetic</button>
+
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
