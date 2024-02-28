@@ -20,7 +20,8 @@
             <span>Surname: <%= item.surname %></span>
             <span>Weight: <%= item.weight %></span>
             <span>Age: <%= item.over_18 ? 'over 18' : 'under 18' %></span>
-            <span>Sex: <%= item.male ? 'male' : 'female'%></span>            
+            <span>Sex: <%= item.male ? 'male' : 'female'%></span>
+            <span>Local Anaesthetic: <%= item.medication %></span>               
           </li>
           <button onclick="deleteItem('<%= item.id %>')">Delete</button>
         <% }); %>

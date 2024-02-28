@@ -83,17 +83,13 @@ async function deleteMedication(id) {
 
 // }
 
-async function calculateDosage(){
-  console.log('calculated dosage')
-  document.getElementById("result").value = 58
-}
+// async function calculateDosage(){
+//   console.log('calculated dosage')
+//   document.getElementById("result").value = 58
+// }
 
 //toggle medications in item page
-document.getElementById('resultButton').addEventListener('click', toggleMedications)
-
-function toggleMedications(){
-  document.getElementById('medicationsList').removeAttribute('hidden')
-}
+// document.getElementById('resultButton').addEventListener('click', toggleMedications)
 
 //show form in medications.ejs
 function showForm(){

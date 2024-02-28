@@ -26,39 +26,26 @@
     <input onchange="toggleMaleFemale()" type="checkbox" name="female" id="female" placeholder="Female">
     <label for="female">Female</label><br><br>
     <!-- this button actually send to the server -->
-    <button onclick="calculateDosage(),toggleMedications()" type="submit" id="resultButton">Calculate</button><br><br>
     
     <!-- <label for="result">Result</label><br>
-    <input type="number" name="result" id="result"><br><br> -->
+      <input type="number" name="result" id="result"><br><br> -->
+      
+      <table id="medicationsTable">
+        <tr>
+          <th>Local Anaesthetic</th><th>Adult maximum dose</th><th>Child maximum dose</th>
+        </tr>
+        <% medications.forEach((la) => { %>
+          <tr>
+            <td><input type="checkbox" name="medication" value="<%= la.name %>"></td>
+            <td><%= la.name %></td>
+            <td><%= la.msd %></td>
+            <td><%= la.msd_for_children %></td>
+            <td><%= la.concentration %></td>
+          </tr>    
+          <% }) %>
+      </table>
+    <button type="submit" id="resultButton">Calculate</button><br><br>
   </form>
-
-
-  <ul id="medicationsList" hidden>
-    <h1>medications</h1>
-    <% medications.forEach((la) => { %>
-      <li>
-          <span><%= la.name %></span>
-          <span>Maximum safe dosage(msd): <%= la.mas %></span>
-          <span>Msd (children): <%= la.msd_for_children %></span>
-          <span>concentration: <%= la.concentration %></span>
-      </li>
-    <% }); %>
-  </ul>
-
-  <table>
-    <tr>
-       <th>Local Anaesthetic</th><th>Adult maximum dose</th><th>Child maximum dose</th>
-    </tr>
- 
-    <% for (var i = 0; i < medications.length; i++) { %>
-     <tr>
-       <td><%= medications[i].name %></td>
-       <td><%= medications[i].msd %></td>
-       <td><%= medications[i].msd_for_children %></td>
-       <td><%= medications[i].concentration %></td>
-     </tr>    
-    <% } %>
- </table>
 
 
   <script src="/js/script.js"></script>
