@@ -7,124 +7,98 @@
     <link rel="stylesheet" href="/css/output.css">
 </head>
 <body>
+  <div class="sm:container mx-auto">
   <%- include('./partials/navbar') %>
-
   <h1>New Patient</h1>
 
-  <form id="updateForm" action="/patient" method="POST">
-    <!-- <input type="hidden" name="id" id="updateId">  -->
-    <input type="text" name="name" id="updateName" placeholder="name" required><br><br>
-    <input type="text" name="surname" id="updateName" placeholder="Surname" required><br><br>
-    <input type="number" name="weight" id="updateName" placeholder="Weight Kg" required><br><br>
-
-    <input type="checkbox" name="over_18" id="updateName" placeholder="over18">
-    <label for="over_18">Over 18</label><br>
-    
-    <input onchange="toggleMaleFemale()" type="checkbox" name="male" id="male" placeholder="Male">
-    <label for="male">Male</label>
-    
-    <input onchange="toggleMaleFemale()" type="checkbox" name="female" id="female" placeholder="Female">
-    <label for="female">Female</label><br><br>
-    <!-- this button actually send to the server -->
-    
-    <!-- <label for="result">Result</label><br>
-      <input type="number" name="result" id="result"><br><br> -->
 
 
-      <table id="medicationsTable">
-        <tr>
-          <th>Local Anaesthetic</th><th>Adult maximum dose</th><th>Child maximum dose</th>
-        </tr>
-        <% medications.forEach((la) => { %>
+
+
+
+  <div class="max-w-sm mx-auto mb-8">
+    <!-- new patient form -->
+    <form class="max-w-sm">
+    <!-- name surname weight -->
+      <div>
+        <div class="flex rounded-lg shadow-sm py-2">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
+          <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+        </div>
+      </div>
+
+      <div>
+        <div class="flex rounded-lg shadow-sm py-2">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
+          <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+        </div>
+      </div>
+
+      <div>
+        <div class="flex rounded-lg shadow-sm py-2">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
+          <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+        </div>
+      </div>
+    <!-- over 18 checkbox -->
+      <div>
+        <div class="flex rounded-lg shadow-sm py-2">
+          <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
+            <span class="flex">
+              <input type="checkbox" class="shrink-0 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-input-group-with-checkbox">
+              <label for="hs-input-group-with-checkbox" class="sr-only">Over 18</label>
+            </span>
+          </span>
+          <input type="text" name="hs-input-with-add-on-url-checkbox" id="hs-input-with-add-on-url-checkbox" class="py-3 px-4 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="Over 18">
+        </div>
+      </div>
+    <!-- male female checkbox -->
+      <div class="flex gap-x-6">
+        <div class="flex">
+          <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-checkbox-group-4">
+          <label for="hs-checkbox-group-4" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Male</label>
+        </div>
+      
+        <div class="flex">
+          <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-checkbox-group-5">
+          <label for="hs-checkbox-group-5" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Female</label>
+        </div>
+      </div>
+    </div>
+      
+    <!-- table for LA -->
+    <di  v class="max-w-md mx-auto">
+      <table id="medicationsTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <caption class="py-2 text-start text-sm text-gray-600 dark:text-gray-500">List of medications</caption>
+        <thead>
           <tr>
-            <td><input type="checkbox" name="medication" value="<%= la.name %>"></td>
-            <td><%= la.name %></td>
-            <td><%= la.msd %></td>
-            <td><%= la.msd_for_children %></td>
-            <td><%= la.concentration %></td>
-          </tr>    
-          <% }) %>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Local Anaesthetic</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Adult maximum dose</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Child maximum dose</th>
+            <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Concentration</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          <% medications.forEach((la) => { %>
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><input type="checkbox" name="medication" value="<%= la.name %>"></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><%= la.name %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd_for_children %></td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.concentration %></td>
+            </tr>
+          <% }); %>
+        </tbody>
       </table>
-    <button type="submit" id="resultButton">Calculate</button><br><br>
-  </form>
+      <!-- <button type="submit" id="resultButton">Calculate</button> -->
+      <button type="submit" id="resultButton" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+        Button
+      </button>
 
-
-
-<!-- new patient form -->
-<form class="max-w-xl">
-<!-- name surname weight -->
-  <div>
-    <div class="flex rounded-lg shadow-sm">
-      <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
-      <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-    </div>
+    </form>
   </div>
 
-  <div>
-    <div class="flex rounded-lg shadow-sm">
-      <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
-      <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-    </div>
   </div>
-
-  <div>
-    <div class="flex rounded-lg shadow-sm">
-      <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Small</span>
-      <input type="text" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-    </div>
-  </div>
-<!-- over 18 checkbox -->
-  <div>
-    <div class="flex rounded-lg shadow-sm">
-      <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
-        <span class="flex">
-          <input type="checkbox" class="shrink-0 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-input-group-with-checkbox">
-          <label for="hs-input-group-with-checkbox" class="sr-only">Over 18</label>
-        </span>
-      </span>
-      <input type="text" name="hs-input-with-add-on-url-checkbox" id="hs-input-with-add-on-url-checkbox" class="py-3 px-4 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="Over 18">
-    </div>
-  </div>
-<!-- male female checkbox -->
-  <div class="flex gap-x-6">
-    <div class="flex">
-      <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-checkbox-group-4">
-      <label for="hs-checkbox-group-4" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Male</label>
-    </div>
-  
-    <div class="flex">
-      <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-checkbox-group-5">
-      <label for="hs-checkbox-group-5" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Female</label>
-    </div>
-  </div>
-<!-- table for LA -->
-  <table id="medicationsTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-    <caption class="py-2 text-start text-sm text-gray-600 dark:text-gray-500">List of medications</caption>
-    <thead>
-      <tr>
-        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Local Anaesthetic</th>
-        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Adult maximum dose</th>
-        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Child maximum dose</th>
-        <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Concentration</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-      <% medications.forEach((la) => { %>
-        <tr>
-          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><input type="checkbox" name="medication" value="<%= la.name %>"></td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><%= la.name %></td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd %></td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd_for_children %></td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.concentration %></td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  <button type="submit" id="resultButton">Calculate</button>
-
-</form>
-
-
   <script src="/js/script.js"></script>
   <script src="/node_modules/preline/dist/preline.js"></script>
 </body>
