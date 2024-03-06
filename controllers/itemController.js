@@ -85,7 +85,7 @@ exports.getContact = (req, res) => {
 
 //create patient
 exports.createPatient = async (req, res) => {
-    //console.log(req.body)
+    console.log(req.body)
     const {data, error} = await supabase.from('items').insert([req.body])
     if(error){
         console.error(error)

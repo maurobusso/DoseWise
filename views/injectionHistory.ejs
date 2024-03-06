@@ -11,7 +11,7 @@
 <body>
     <%- include('./partials/navbar') %>
 
-    <h1>this is the injection history page</h1>
+    <!-- <h1>this is the injection history page</h1>
 
     <ul id="itemList">
         <% items.forEach((item) => { %>
@@ -25,18 +25,18 @@
           </li>
           <button onclick="deleteItem('<%= item.id %>')">Delete</button>
         <% }); %>
-    </ul>
+    </ul> -->
 
 
 
 
-    <div class="flex flex-col">
+    <div class="flex flex-col mt-16">
       <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
           <div class="overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table class="max-w-sm mx-auto divide-y divide-gray-200 dark:divide-gray-700">
               <thead>
-                <tr>
+                <tr >
                   <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
                   <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Surname</th>
                   <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Weight</th>

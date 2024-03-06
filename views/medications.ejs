@@ -7,28 +7,31 @@
   <link rel="stylesheet" href="/css/output.css">
 </head>
 <body>
-  <%- include('./partials/navbar') %>
-  <h1>Anaesthetics</h1>
+  <div>
+
+    <%- include('./partials/navbar') %>
+    <!-- <h1>Anaesthetics</h1> -->
 
     <!-- <ul>
         <% medications.forEach((la) => { %>
-            <li>
+          <li>
                 <span>Name: <%= la.name %></span>
                 <span>Maximum safe dosage(msd): <%= la.msd %></span>
                 <span>Msd (children): <%= la.msd_for_children %></span>
                 <span>concentration: <%= la.concentration %></span>
-
+                
                 <button onclick="editMedication('<%= la.id %>', '<%= la.name %>', '<%= la.mas %>', '<%= la.concentration %>')">Edit</button>
                 <button onclick="deleteMedication('<%= la.id %>')">Delete</button>
             </li>
-        <% }); %>
-    </ul> -->
+            <% }); %>
+          </ul> -->
 
-    <div class="flex flex-col">
-      <div class="-m-1.5 overflow-x-auto">
-        <div class="p-1.5 min-w-full inline-block align-middle">
+    <div class="max-w-lg mx-auto">
+      <div class="flex flex-col items-center mt-16">
+        <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 inline-block align-middle">
           <div class="overflow-hidden">
-            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <table class=" divide-y divide-gray-200 dark:divide-gray-700">
               <caption class="py-2 text-start text-sm text-gray-600 dark:text-gray-500">List of medications</caption>
               <thead>
                 <tr>
@@ -58,28 +61,35 @@
         </div>
       </div>
     </div>
-
-
-    <form id="addMedication" action="/add" method="POST" hidden>
-      <input type="text" name="name" placeholder="name" id="la-name" required>
-      <input type="number" step="0.01" name="msd" placeholder="Maximum safe dosage(mg)" id="msd" required>
-      <input type="number" step="0.01" name="msd_for_children" placeholder="msd for children" id="msd_for_children"required>
-      <input type="number" step="0.01" name="concentration" placeholder="concentration(%)" id="concentration" required>
-      <button type="submit" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 
-      text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none 
-      dark:focus:ring-1 dark:focus:ring-gray-600">Add Anaesthetic</button>
+    
+    
+    <form id="addMedication" action="/add" method="POST" hidden class="pt-10">
+      <input type="text" name="name" placeholder="Name" id="la-name" required class="m-2">
+      <input type="number" step="0.01" name="msd" placeholder="Maximum safe dosage(mg)" id="msd" required class="m-2">
+      <input type="number" step="0.01" name="msd_for_children" placeholder="Msd for children" id="msd_for_children"required class="m-2">
+      <input type="number" step="0.01" name="concentration" placeholder="Concentration(%)" id="concentration" required class="m-2">
+      <div class="pt-3">
+        <button type="submit" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 
+          text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none 
+          dark:focus:ring-1 dark:focus:ring-gray-600">
+          Add Anaesthetic
+        </button>
+      </div>
     </form>
-  
+    
     <!-- <button onclick="showForm()" id="newAnaestheticButton">Add Anaesthetic</button> -->
-
-    <button onclick="showForm()" id="newAnaestheticButton" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent 
-    bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 
-    dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+    <div class="pt-10">
+      <button onclick="showForm()" id="newAnaestheticButton" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent 
+      bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 
+      dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
       Add Anaesthetic
-    </button>
+      </button>
+    </div>
+</div>      
+  
+  
 
-
-
+</div>
     <script src="/js/script.js"></script>
     <script src="/node_modules/preline/dist/preline.js"></script>
 </body>
