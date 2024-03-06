@@ -4,7 +4,7 @@ const itemController = require('../controllers/itemController')
 
 router.get('/', itemController.getIndex)
 router.get('/newPatient', itemController.getNewPatient)
-router.get('/item', itemController.getItemsPatient)
+//router.get('/item', itemController.getItemsPatient)
 // router.post('/item', itemController.createItem)
 router.post('/item/update/:id', itemController.updateItem)
 router.delete('/item/delete/:id', itemController.deleteItem)

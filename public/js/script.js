@@ -103,9 +103,14 @@ function toggleMenue(){
 }
 
 //show list of medication when calculate button is clicked
-
+// maybe remove this global variable
 const calculateButton = document.getElementById('calculateButton')
-calculateButton.addEventListener('click', showmedicationsTable)
+//need to check if form exist before atahcing an event listener
+if(calculateButton){
+  calculateButton.addEventListener('click', showmedicationsTable)
+}else{
+  console.log('calculateButton element not found')
+}
 
 const medicationsTable = document.getElementById('medicationsTable')
 const resultButton = document.getElementById('resultButton')
@@ -118,29 +123,32 @@ function showmedicationsTable(){
 }
 
 //try this to send the data from the first form to the server wiothoput having to reload the page
-const form = document.getElementById('myForm');
-form.addEventListener('submit', event => {
-  event.preventDefault(); // Prevent the default form submission behavior
+const form = document.getElementById('myForm')
 
-  const formData = new FormData(form); // Get form data
-
-  fetch('https://example.com/submit-form', {
-    method: 'POST',
-    body: formData
+if(form){
+  form.addEventListener('submit', event => {
+    event.preventDefault(); // Prevent the default form submission behavior
+  
+    const formData = new FormData(form); // Get form data
+  
+    fetch('https://example.com/submit-form', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      return response.json()
+    })
+    .then(data => {
+      console.log('Success:', data)
+    })
+    .catch(error => {
+      console.error('Error:', error)
+    })
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-});
+}
 
 
 //get weight value
@@ -175,9 +183,9 @@ form.addEventListener('submit', event => {
 //   }  
 // }
 
-function result(){
-  const popUp = document.getElementById('popup')
+// function result(){
+//   const popUp = document.getElementById('popup')
 
-  popUp.classList.toggle('hidden')
+//   popUp.classList.toggle('hidden')
 
-}
+// }
