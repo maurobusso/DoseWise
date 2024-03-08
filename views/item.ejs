@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="/css/output.css">
 </head>
 <body>
-  <div class="sm:container mx-auto">
+  <div class="sm:container">
   <%- include('./partials/navbar') %>
   <h1>New Patient</h1>
 
-  <div class="max-w-sm mx-auto mb-8">
+  <div class="mt-20">
     <!-- new patient form -->
-    <form action="/patient" method="POST" class="max-w-sm">
+    <form action="/patient" method="POST" class="mb-8">
+
     <!-- name surname weight -->
+    <div class="max-w-sm mx-auto mb-8">
       <div>
         <div class="flex rounded-lg shadow-sm py-2">
           <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Name</span>
@@ -61,10 +63,11 @@
           <label for="female" class="text-sm text-gray-500 ms-3 dark:text-gray-400">Female</label>
         </div>
       </div>
+    </div>
       
     <!-- table for LA -->
-    <div class="max-w-md mx-auto">
-      <table id="medicationsTable" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+    <div class="max-w-screen-sm mx-auto">
+      <table id="medicationsTable" class="mx-auto divide-y divide-gray-200 dark:divide-gray-700">
         <caption class="py-2 text-start text-sm text-gray-600 dark:text-gray-500">List of medications</caption>
         <thead>
           <tr>
@@ -78,6 +81,8 @@
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
           <% medications.forEach((la) => { %>
             <tr>
+              <!-- ((kg * msdForKg) / (10 * drugConc)) -->
+
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><input type="checkbox" name="medication" value="<%= la.name %>"></td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><%= la.name %></td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd %></td>
@@ -88,13 +93,14 @@
         </tbody>
       </table>
       <!-- <button type="submit" id="resultButton">Calculate</button> -->
-      <button type="submit" id="resultButton" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-        Button
-      </button>
+        <button type="submit" id="resultButton" class=" py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+          Send
+        </button>
     </div>
+    
     </form>
-
   </div>
+
   <script src="/js/script.js"></script>
   <script src="/node_modules/preline/dist/preline.js"></script>
 </body>
