@@ -6,9 +6,14 @@
     <!-- <link rel="stylesheet" href="/css/styles.css"> -->
     <!-- for tailwind -->
     <link rel="stylesheet" href="/css/output.css">
-    <title>Document</title>
+    <title>injection history</title>
+    <style>
+      .gradient {
+        background: linear-gradient(90deg, #457de6 0%, #2a4ada 100%);
+      }
+    </style>
 </head>
-<body>
+<body class="gradient">
     <%- include('./partials/navbar') %>
 
     <!-- 
@@ -27,8 +32,6 @@
     </ul>
     -->
 
-    <h1>Injection History</h1>
-
     <div class="flex flex-col mt-16">
       <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
@@ -36,13 +39,13 @@
             <table class="max-w-sm mx-auto divide-y divide-gray-200 dark:divide-gray-700">
               <thead>
                 <tr >
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Weight</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Age</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Sex</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Local Anaesthetic</th>
-                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Date</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Name</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Weight</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Age</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Sex</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Local Anaesthetic</th>
+                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-white uppercase">Action</th>
                 </tr>
               </thead>
               <tbody>

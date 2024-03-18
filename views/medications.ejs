@@ -5,12 +5,15 @@
   <!-- <link rel="stylesheet" href="/css/styles.css"> -->
   <!-- for tailwind -->
   <link rel="stylesheet" href="/css/output.css">
+  <style>
+    .gradient {
+      background: linear-gradient(90deg, #316fe4 0%, #243fb9 100%);
+    }
+  </style>
 </head>
-<body>
+<body class="gradient">
   <div>
-
     <%- include('./partials/navbar') %>
-    <!-- <h1>Anaesthetics</h1> -->
 
     <!-- <ul>
         <% medications.forEach((la) => { %>
@@ -31,18 +34,18 @@
         <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 inline-block align-middle">
           <div class="overflow-hidden">
-            <table class=" divide-y divide-gray-200 dark:divide-gray-700">
-              <caption class="py-2 text-start text-sm text-gray-600 dark:text-gray-500">List of medications</caption>
+            <table class=" divide-y divide-white">
+              <caption class="py-2 text-start text-sm text-white">List of medications</caption>
               <thead>
                 <tr>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Name</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Maximum Safe Dosage (msd)</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Msd (Children)</th>
-                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Concentration</th>
-                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Name</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Maximum Safe Dosage (msd)</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Msd (Children)</th>
+                  <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Concentration</th>
+                  <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-white uppercase">Action</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+              <tbody class="divide-y divide-white">
                 <% medications.forEach((la) => { %>
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black"><%= la.name %></td>
@@ -50,8 +53,13 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.msd_for_children %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-black"><%= la.concentration %></td>
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                      <button onclick="editMedication('<%= la.id %>', '<%= la.name %>', '<%= la.msd %>', '<%= la.concentration %>')" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Edit</button>
-                      <button onclick="deleteMedication('<%= la.id %>')" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
+                      <button onclick="editMedication('<%= la.id %>', '<%= la.name %>', '<%= la.msd %>', '<%= la.concentration %>')" 
+                        class="pr-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 
+                        disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400 dark:focus:outline-none 
+                        dark:focus:ring-1 dark:focus:ring-gray-600">Edit</button>
+                      <button onclick="deleteMedication('<%= la.id %>')" class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border 
+                        border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500
+                         dark:hover:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Delete</button>
                     </td>
                   </tr>
                 <% }); %>
@@ -61,7 +69,6 @@
         </div>
       </div>
     </div>
-    
     
     <form id="addMedication" action="/add" method="POST" hidden class="pt-10">
       <input type="text" name="name" placeholder="Name" id="la-name" required class="m-2">
