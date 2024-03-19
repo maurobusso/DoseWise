@@ -30,15 +30,15 @@ exports.getItems = async (req, res) => {
 
 
 //create
-exports.createItem = async (req, res) => {
-    const {data, error} = await supabase.from('items').insert([req.body])
-    if(error){
-        console.error(error)
-        res.redirect('/item?error=true')
-    }else{
-        res.redirect('/item')
-    }
-}
+// exports.createItem = async (req, res) => {
+//     const {data, error} = await supabase.from('items').insert([req.body])
+//     if(error){
+//         console.error(error)
+//         res.redirect('/item?error=true')
+//     }else{
+//         res.redirect('/item')
+//     }
+// }
 
 
 //Update
@@ -87,6 +87,7 @@ exports.getContact = (req, res) => {
 exports.createPatient = async (req, res) => {
     console.log(req.body)
     const {data, error} = await supabase.from('items').insert([req.body])
+
     if(error){
         console.error(error)
         res.redirect('/item?error=true')
@@ -95,6 +96,20 @@ exports.createPatient = async (req, res) => {
     }
 }
 
+//trying to get weigth
+exports.getWeight = async (req, res) => {
+    console.log(req.body.weight)
+    const {data, error} = await supabase.from('items').insert([req.body.weight])
+
+    if(error){
+        console.error(error)
+        res.redirect('/item?error=true')
+    }else{
+        res.render('data', { data })
+    }
+}
+
+
 exports.getMedications = async (req, res) => {
     const {data, error} = await supabase.from('medications').select('*')
     
@@ -102,7 +117,7 @@ exports.getMedications = async (req, res) => {
         console.error(error)
         res.redirect('/index?error=true')
     }else{
-        res.render('medications', {medications: data})
+        res.render('medications', {medications: data}) 
     }
 }
 

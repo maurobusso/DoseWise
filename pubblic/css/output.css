@@ -1676,6 +1676,11 @@ select {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-blue-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
 .hover\:text-black:hover {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -1830,6 +1835,10 @@ select {
     margin-right: 0px;
   }
 
+  .md\:mt-0 {
+    margin-top: 0px;
+  }
+
   .md\:block {
     display: block;
   }
@@ -1850,8 +1859,24 @@ select {
     width: 80%;
   }
 
+  .md\:grow-0 {
+    flex-grow: 0;
+  }
+
+  .md\:basis-auto {
+    flex-basis: auto;
+  }
+
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+
+  .md\:ps-5 {
+    padding-inline-start: 1.25rem;
   }
 
   .md\:text-left {

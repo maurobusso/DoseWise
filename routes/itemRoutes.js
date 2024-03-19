@@ -18,5 +18,7 @@ router.delete('/medications/delete/:id', itemController.deleteMedication)
 
 router.get('/guidelines', itemController.getGuidelines)
 
+router.get('/getWeight', itemController.getWeight)
+
 module.exports = router
 

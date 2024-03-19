@@ -77,17 +77,16 @@ async function deleteMedication(id) {
       console.log(error)
   }  
 }
-      
-//Handle Errors from server if unable to write data (optional)
-// function checkForError(){
 
-// }
 
 //show form in medications.ejs
 function showForm(){
   document.getElementById('addMedication').removeAttribute('hidden')
   document.getElementById('newAnaestheticButton').style.display = 'none' 
 }
+
+
+//toggle menue when clickin on the burger menue when on small screens
 
 const burgerMenue = document.getElementById('burgerMenue')
 burgerMenue.addEventListener('click', toggleMenue)
@@ -102,3 +101,64 @@ function toggleMenue(){
     navbar.classList.add('hidden')
   }
 }
+
+//show list of medication when calculate button is clicked
+
+const calculateButton = document.getElementById('calculateButton')
+calculateButton.addEventListener('click', showmedicationsTable)
+
+const medicationsTable = document.getElementById('medicationsTable')
+const resultButton = document.getElementById('resultButton')
+
+function showmedicationsTable(){
+  event.preventDefault()
+  medicationsTable.classList.remove('hidden')
+  resultButton.classList.remove('hidden')
+}
+
+
+
+//get weight value
+
+document.getElementById("calculateButton").addEventListener("click", async function() {
+  try {
+    const response = await fetch("/item/getWeight");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    console.log(data);
+    // Handle the retrieved data here
+  } catch (error) {
+    console.error("There was a problem fetching the data:", error);
+  }
+});
+
+// document.getElementById("calculateButton").addEventListener("click", function() {
+//   console.log('hello')
+//   // Retrieve the weight input value
+//   let weight = document.getElementById("weight").value;
+
+//   // Create a new XMLHttpRequest object
+//   let xhr = new XMLHttpRequest();
+
+//   // Configure the AJAX request
+//   xhr.open("POST", "/getWeight", true);
+//   xhr.setRequestHeader("Content-Type", "application/json");
+
+//   // Set up the callback function when the AJAX request completes
+//   xhr.onload = function() {
+//     if (xhr.status === 200) {
+//       console.log("Weight calculation successful");
+//       // Optionally, you can handle the response from the server here
+//     } else {
+//       console.error("Error calculating weight:", xhr.statusText);
+//     }
+//   };
+
+//   // Convert the weight value to JSON format
+//   var data = JSON.stringify({ weight: weight });
+
+//   // Send the AJAX request with the weight data
+//   xhr.send(data);
+// });
