@@ -88,3 +88,17 @@ function showForm(){
   document.getElementById('addMedication').removeAttribute('hidden')
   document.getElementById('newAnaestheticButton').style.display = 'none' 
 }
+
+const burgerMenue = document.getElementById('burgerMenue')
+burgerMenue.addEventListener('click', toggleMenue)
+
+const navbar = document.getElementById('navbar')
+
+function toggleMenue(){
+  //console.log('toggled')
+  if(navbar.classList.contains("hidden")){
+    navbar.classList.remove('hidden')
+  }else{
+    navbar.classList.add('hidden')
+  }
+}
