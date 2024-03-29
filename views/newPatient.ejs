@@ -15,18 +15,15 @@
   <%- include('./partials/navbar') %>
 
   <div class="mt-20">
+
     <!-- new patient form -->
-    <form action="/patient" method="POST" class="mb-8">
-
-    <!-- name surname weight -->
-    <form action="/getWeight" method="POST" class="mb-8">
-
+    <form action="/patient" method="POST" class="mb-8"> 
       <div class="max-w-sm mx-auto mb-8">
         <div>
           <div class="flex rounded-lg shadow-sm py-2">
             <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200
              bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Name</span>
-            <input type="text" name="name" id="name" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg
+            <input required type="text" name="name" id="name" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg
              text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
               dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
           </div>
@@ -36,7 +33,7 @@
           <div class="flex rounded-lg shadow-sm py-2">
             <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 
             text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Surname</span>
-            <input type="text" name="surname" id="surname" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm 
+            <input required type="text" name="surname" id="surname" class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm 
             rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none
              dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
           </div>
@@ -46,7 +43,7 @@
           <div class="flex rounded-lg shadow-sm py-2">
             <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm
              text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">Weight</span>
-            <input type="number" step="0.01" name="weight" id="weight" class="py-2 px-3 pe-11 block w-full border-gray-200 
+            <input required type="number" step="0.01" name="weight" id="weight" class="py-2 px-3 pe-11 block w-full border-gray-200 
             shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 
             disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
           </div>
@@ -54,19 +51,11 @@
   
       <!-- over 18 checkbox -->
         <div>
-          <div class="flex rounded-lg shadow-sm py-2">
-            <span class="px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm
-             text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">
-              <span class="flex">
-                <input type="checkbox" name="over_18" id="over_18" class="shrink-0 border-gray-200 rounded text-blue-600
-                focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500
-                dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                <label for="over_18" class="sr-only">Over 18</label>
-              </span>
-            </span>
-            <input type="text" class="py-3 px-4 pe-11 block w-full border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10
-             focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900
-             dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" placeholder="Over 18">
+          <div class="flex py-4">
+            <input required type="checkbox" name="over_18" id="over_18" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600
+             focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500
+             dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-checkbox-group-4">
+            <label for="over_18" class="text-sm text-white ms-3 ">Over 18</label>
           </div>
         </div>
   
@@ -95,10 +84,8 @@
       </div>
     </form>
 
-      
-    <!-- table for LA -->
-    <div class="max-w-screen-sm mx-auto">
-      <table id="medicationsTable" class="mx-auto divide-y divide-white">
+    <form action="/addMedication" method="POST" class="max-w-screen-sm mx-auto">
+      <table id="medicationsTable" class="hidden mx-auto divide-y divide-white">
         <caption class="py-2 text-start text-sm text-white">List of medications</caption>
         <thead>
           <tr>
@@ -124,19 +111,21 @@
         </tbody>
       </table>
       <!-- <button type="submit" id="resultButton">Calculate</button> -->
-        <button type="submit" id="resultButton" class=" mt-8 py-3 px-4 items-center gap-x-2 text-sm font-semibold rounded-lg 
+        <button type="submit" id="resultButton" class="hidden mt-8 py-3 px-4 items-center gap-x-2 text-sm font-semibold rounded-lg 
         border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none
         dark:hover:bg-blue-900 dark:text-blue-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
          >
          Save
         </button>
+      </form>
+
     </div>
-    
-    </form>
   </div>
 
+  <%- include('./partials/footer') %>  
+  
   <script src="/js/script.js"></script>
-  <script src="/node_modules/preline/dist/preline.js"></script>
+  <!-- <script src="/node_modules/preline/dist/preline.js"></script> -->
 </body>
 </html>
 

@@ -11,24 +11,9 @@
     }
   </style>
 </head>
-<body class="gradient">
+<body class="gradient sm:container mx-auto">
   <div>
     <%- include('./partials/navbar') %>
-
-    <!-- <ul>
-        <% medications.forEach((la) => { %>
-          <li>
-                <span>Name: <%= la.name %></span>
-                <span>Maximum safe dosage(msd): <%= la.msd %></span>
-                <span>Msd (children): <%= la.msd_for_children %></span>
-                <span>concentration: <%= la.concentration %></span>
-                
-                <button onclick="editMedication('<%= la.id %>', '<%= la.name %>', '<%= la.mas %>', '<%= la.concentration %>')">Edit</button>
-                <button onclick="deleteMedication('<%= la.id %>')">Delete</button>
-            </li>
-            <% }); %>
-          </ul> -->
-
     <div class="max-w-lg mx-auto">
       <div class="flex flex-col items-center mt-16">
         <div class="-m-1.5 overflow-x-auto">
@@ -93,11 +78,11 @@
       </button>
     </div>
 </div>      
-  
-  
-
 </div>
+
+<%- include('./partials/footer') %> 
+
     <script src="/js/script.js"></script>
-    <script src="/node_modules/preline/dist/preline.js"></script>
+    <!-- <script src="/node_modules/preline/dist/preline.js"></script> -->
 </body>
 </html>

@@ -17,17 +17,27 @@ exports.getIndex = (req, res) => {
 //     }
 // }
 
-exports.getItems = async (req, res) => {
+exports.getNewPatient = async (req, res) => {
     const {data, error} = await supabase.from('medications').select('*')
+    console.log('you hit the /newPatient route')
+    if(error){
+        console.error(error)
+        res.redirect('/newPatient?error=true')
+    }else{
+        res.render('newPatient', {medications: data})
+    }
+}
+
+exports.getItemsPatient = async (req, res) => {
+    const {data, error} = await supabase.from('items').select('*')
     
     if(error){
         console.error(error)
         res.redirect('/item?error=true')
     }else{
-        res.render('item', {medications: data})
+        res.render('item', {items: data})
     }
 }
-
 
 //create
 // exports.createItem = async (req, res) => {
@@ -87,32 +97,33 @@ exports.getContact = (req, res) => {
 exports.createPatient = async (req, res) => {
     console.log(req.body)
     const {data, error} = await supabase.from('items').insert([req.body])
-
+    console.log('you hit the /createPatient route')
     if(error){
         console.error(error)
-        res.redirect('/item?error=true')
+        res.redirect('/newPatient?error=true')
     }else{
-        res.redirect('/item')
+        res.redirect('/newPatient')
     }
 }
 
-//trying to get weigth
-exports.getWeight = async (req, res) => {
-    console.log(req.body.weight)
-    const {data, error} = await supabase.from('items').insert([req.body.weight])
+exports.addMedication = async (req, res) => {
+    console.log(req.body)
+    const { itemId, medication } = req.query;
+    const {data, error} = await supabase.from('items')
+                                        .update({ medication: medication })
+                                        .eq('id', itemId)
 
     if(error){
         console.error(error)
-        res.redirect('/item?error=true')
+        res.redirect('/newPatient?error=true')
     }else{
-        res.render('data', { data })
+        res.redirect('/newPatient')
     }
 }
-
 
 exports.getMedications = async (req, res) => {
     const {data, error} = await supabase.from('medications').select('*')
-    
+    // console.log(data)
     if(error){
         console.error(error)
         res.redirect('/index?error=true')

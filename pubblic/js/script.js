@@ -111,54 +111,66 @@ const medicationsTable = document.getElementById('medicationsTable')
 const resultButton = document.getElementById('resultButton')
 
 function showmedicationsTable(){
+  console.log('clicked')
   event.preventDefault()
   medicationsTable.classList.remove('hidden')
   resultButton.classList.remove('hidden')
 }
 
+//try this to send the data from the first form to the server wiothoput having to reload the page
+const form = document.getElementById('myForm');
+form.addEventListener('submit', event => {
+  event.preventDefault(); // Prevent the default form submission behavior
+
+  const formData = new FormData(form); // Get form data
+
+  fetch('https://example.com/submit-form', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
 
 
 //get weight value
 
-document.getElementById("calculateButton").addEventListener("click", async function() {
-  try {
-    const response = await fetch("/item/getWeight");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const data = await response.json();
-    console.log(data);
-    // Handle the retrieved data here
-  } catch (error) {
-    console.error("There was a problem fetching the data:", error);
-  }
-});
-
-// document.getElementById("calculateButton").addEventListener("click", function() {
-//   console.log('hello')
-//   // Retrieve the weight input value
-//   let weight = document.getElementById("weight").value;
-
-//   // Create a new XMLHttpRequest object
-//   let xhr = new XMLHttpRequest();
-
-//   // Configure the AJAX request
-//   xhr.open("POST", "/getWeight", true);
-//   xhr.setRequestHeader("Content-Type", "application/json");
-
-//   // Set up the callback function when the AJAX request completes
-//   xhr.onload = function() {
-//     if (xhr.status === 200) {
-//       console.log("Weight calculation successful");
-//       // Optionally, you can handle the response from the server here
-//     } else {
-//       console.error("Error calculating weight:", xhr.statusText);
+// document.getElementById("calculateButton").addEventListener("click", async function() {
+//   try {
+//     const response = await fetch("/item/getWeight");
+//     if (!response.ok) {
+//       throw new Error("Network response was not ok");
 //     }
-//   };
-
-//   // Convert the weight value to JSON format
-//   var data = JSON.stringify({ weight: weight });
-
-//   // Send the AJAX request with the weight data
-//   xhr.send(data);
+//     const data = await response.json();
+//     console.log(data);
+//     // Handle the retrieved data here
+//   } catch (error) {
+//     console.error("There was a problem fetching the data:", error);
+//   }
 // });
+
+
+async function deleteMedication(id) {
+  try{
+      const response = await fetch(`http://localhost:5000/item/getWeight${id}`, {
+          method: 'GET',
+      });
+      if(response.ok){
+          location.reload()
+      }else{
+          console.log('Failed to delete item')
+      }        
+  }catch(error){
+      console.log(error)
+  }  
+}
