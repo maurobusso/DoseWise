@@ -10,10 +10,9 @@
       }
     </style>
 </head>
-<body class="gradient">
-  <div class="sm:container">
+<body class="gradient flex flex-col min-h-screen">
+  <div class="sm:container pb-8">
   <%- include('./partials/navbar') %>
-
   <div class="mt-20">
 
     <!-- new patient form -->
@@ -122,7 +121,9 @@
     </div>
   </div>
 
-  <%- include('./partials/footer') %>  
+  <footer class="mt-auto">
+    <%- include('./partials/footer') %>  
+  </footer> 
   
   <script src="/js/script.js"></script>
   <!-- <script src="/node_modules/preline/dist/preline.js"></script> -->

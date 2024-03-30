@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Item</title>
+  <title>Guidelines Page</title>
   <!-- <link rel="stylesheet" href="/css/styles.css"> -->
     <!-- for tailwind -->
     <link rel="stylesheet" href="/css/output.css">
@@ -11,17 +11,88 @@
       }
     </style>
 </head>
-<body class="text-white gradient sm:container mx-auto">
+<body class="text-white sm:container gradient flex flex-col min-h-screen">
 
   <%- include('./partials/navbar') %>
 
-  <div class="flex flex-col items-center mt-16">
-    <h1>NHS Guidelines</h1>
-    <a href="https://www.esht.nhs.uk/wp-content/uploads/2019/08/0754.pdf">Patient Information</a><br><br>
-    <a href="https://patient.info/doctor/practical-local-anaesthesia">Practical Local Anaesthesia</a>
+  <div class="container max-w-screen-md px-4 py-8">
+    <h1 class="text-3xl font-bold text-white mb-4">Guidelines</h1>
+    <p class="text-white py-4">
+      Welcome to the NHS Guidelines page for anaesthetic calculations. 
+      This resource aims to provide comprehensive information and resources for healthcare professionals 
+      involved in anaesthesia administration. From patient information guides to practical tips for local anaesthesia,
+      we strive to support your practice with the latest guidelines and insights.
+    </p>
+    <p class="text-white py-4">
+      Whether you're a seasoned anaesthetist or a medical student seeking to deepen your understanding, 
+      our aim is to provide a comprehensive platform to enhance your knowledge and practice in anaesthetic calculations.
+    </p>
+    <p class="text-white">
+      For any inquiries or suggestions, please don't hesitate to reach out to our team. 
+      Your feedback is invaluable as we continue to improve and expand our resources to better serve the medical community.
+    </p>
+
+    <div class="py-8">
+      <ul class="flex flex-col">
+        <li class="flex flex-col items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200
+         text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+          <a href="https://patient.info/doctor/practical-local-anaesthesia" class="hover:text-cyan-800 pb-4">Practical guide to Local Anaesthesia</a>
+          <div class="flex">
+            <p class="">
+              Here is detailed information on various aspects of local anaesthesia, including types of local anaesthetic techniques 
+              different types of local anaesthetic drugs, practical administration considerations, safety measures, and potential
+              side effects and complications associated with local anaesthesia. It serves as a 
+              comprehensive guide for healthcare professionals involved in administering local anaesthesia.
+            </p>
+            <img src="/img/anaesthetic-1.jpg" alt="img 1" class="p-4 w-full sm:h-64">
+          </div>
+        </li>
+
+        <li class="flex flex-col items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200
+         text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+          <a href="https://patient.info/doctor/practical-local-anaesthesia" class="hover:text-cyan-800 pb-4">Toenail surgery: Indications, options and techniques</a>
+          <p class="">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum odit maxime nihil dicta cumque iusto sequi corrupti laborum doloremque perspiciatis sed, 
+            dolore totam qui necessitatibus quidem consectetur excepturi tenetur tempora!
+          </p>
+        </li>
+        <li class="flex flex-col items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray-200
+         text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+          <a href="https://patient.info/doctor/practical-local-anaesthesia" class="hover:text-cyan-800 pb-4">Information for Patients</a>
+          <p class="">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius magni vero vel quos id eaque officia non. 
+            Quae impedit suscipit cumque inventore rem harum deserunt, voluptas sint aliquid nemo expedita?
+          </p>
+        </li>
+
+      </ul>
+    </div>
   </div>
 
-  <%- include('./partials/footer') %>  
+
+  <!-- <div class="items-center flex flex-col">
+    <ul class="flex flex-col items-center space-y-4">
+      <li class="bg-white border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+        <a href="https://patient.info/doctor/practical-local-anaesthesia" class="block py-3 px-4 text-sm font-medium text-gray-800 dark:text-white">Practical guide to Local Anaesthesia</a>
+        <p class="py-2 px-4 text-sm text-gray-700 dark:text-gray-300">
+          Here is detailed information on various aspects of local anaesthesia, including types of local anaesthetic techniques, different types of local anaesthetic drugs, practical administration considerations, safety measures, and potential side effects and complications associated with local anaesthesia. It serves as a comprehensive guide for healthcare professionals involved in administering local anaesthesia.
+        </p>
+      </li>
+      <li class="bg-white border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+        <a href="https://www.researchgate.net/publication/350314182_Toenail_surgery_Indications_options_and_techniques" class="block py-3 px-4 text-sm font-medium text-gray-800 dark:text-white">Toenail surgery: Indications, options and techniques</a>
+        <p class="py-2 px-4 text-sm text-gray-700 dark:text-gray-300">
+          
+        </p>
+      </li>
+      <li class="bg-white border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700 dark:text-white">
+        <a href="https://www.esht.nhs.uk/wp-content/uploads/2019/08/0754.pdf" class="block py-3 px-4 text-sm font-medium text-gray-800 dark:text-white">Patient Information</a>
+      </li>
+    </ul>
+  </div> -->
+
+  <footer class="mt-auto">
+    <%- include('./partials/footer') %>  
+  </footer>
 
 </body>
 </html>
