@@ -1,6 +1,9 @@
 //this variable is to show the warning if patient is female
 let warning = false
 
+// Determine if the current environment is production based on the hostname
+const isProduction = window.location.hostname !== 'localhost';
+
   function toggleMaleFemale(){
 
       let male = document.getElementById('male').checked
@@ -44,8 +47,9 @@ function editItem(id, name, description) {
 
 //Handle delete requests
 async function deleteItem(id) {
+  const url = isProduction ? `https://dose-wise.vercel.app/injectionHistory/item/delete/${id}` : `http://localhost:5000/item/delete/${id}`
     try{
-        const response = await fetch(`http://localhost:5000/item/delete/${id}`, {
+        const response = await fetch( url, {
             method: 'DELETE',
         });
         if(response.ok){
@@ -60,8 +64,9 @@ async function deleteItem(id) {
 
 
 async function deleteMedication(id) {
+  const url = isProduction ? `https://dose-wise.vercel.app/medications/delete/{id}` : `http://localhost:5000/medications/delete/${id}`
   try{
-      const response = await fetch(`http://localhost:5000/medications/delete/${id}`, {
+      const response = await fetch( url, {
           method: 'DELETE',
       });
       if(response.ok){
