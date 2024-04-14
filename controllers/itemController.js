@@ -19,7 +19,8 @@ exports.getIndex = (req, res) => {
 
 exports.getNewPatient = async (req, res) => {
     const {data, error} = await supabase.from('medications').select('*')
-    console.log('you hit the /newPatient route')
+    //console.log('you hit the /newPatient route')
+    console.log(data)
     if(error){
         console.error(error)
         res.redirect('/newPatient?error=true')
@@ -97,7 +98,8 @@ exports.getContact = (req, res) => {
 exports.createPatient = async (req, res) => {
     console.log(req.body)
     const {data, error} = await supabase.from('items').insert([req.body])
-    console.log('you hit the /createPatient route')
+    //console.log('you hit the /createPatient route')
+    console.log(data)
     if(error){
         console.error(error)
         res.redirect('/newPatient?error=true')
