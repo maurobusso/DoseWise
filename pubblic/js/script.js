@@ -160,17 +160,17 @@ form.addEventListener('submit', event => {
 // });
 
 
-async function deleteMedication(id) {
-  try{
-      const response = await fetch(`http://localhost:5000/item/getWeight${id}`, {
-          method: 'GET',
-      });
-      if(response.ok){
-          location.reload()
-      }else{
-          console.log('Failed to delete item')
-      }        
-  }catch(error){
-      console.log(error)
-  }  
-}
+// async function deleteMedication(id) {
+//   try{
+//       const response = await fetch(`http://localhost:5000/item/getWeight${id}`, {
+//           method: 'GET',
+//       });
+//       if(response.ok){
+//           location.reload()
+//       }else{
+//           console.log('Failed to delete item')
+//       }        
+//   }catch(error){
+//       console.log(error)
+//   }  
+// }
