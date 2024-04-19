@@ -24,28 +24,3 @@ module.exports = {
 //     autoprefixer: {},
 //   }
 // }
-
-
-//vercel.json
-
-// {
-//   "version": 2,
-//   "builds": [
-//     {
-//       "src": "server/server.js",
-//       "use": "@vercel/node",
-//       "config": {
-//         "includeFiles": [
-//           "views/**/*",
-//           "public/**/*"
-//         ]
-//       }
-//     }
-//   ],
-//   "routes": [
-//     {
-//       "src": "/(.*)",
-//       "dest": "server/server.js"
-//     }
-//   ]
-// }
