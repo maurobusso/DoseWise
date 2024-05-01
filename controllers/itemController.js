@@ -160,3 +160,14 @@ exports.createLa = async (req, res) => {
         res.redirect('/medications')
     }
 }
+
+exports.getResult = async (req, res) => {
+    const {data, error} = await supabase.from('medications').select('*')
+    // console.log(data)
+    if(error){
+        console.error(error)
+        res.redirect('/newPatient?error=true')
+    }else{
+        res.render('result') 
+    }
+}

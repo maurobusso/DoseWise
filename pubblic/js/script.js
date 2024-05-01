@@ -174,3 +174,10 @@ form.addEventListener('submit', event => {
 //       console.log(error)
 //   }  
 // }
+
+function result(){
+  const popUp = document.getElementById('popup')
+
+  popUp.classList.toggle('hidden')
+
+}

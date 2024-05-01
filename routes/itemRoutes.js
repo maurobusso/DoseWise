@@ -20,6 +20,7 @@ router.get('/medications', itemController.getMedications)
 router.delete('/medications/delete/:id', itemController.deleteMedication)
 
 router.get('/guidelines', itemController.getGuidelines)
+router.get('/result', itemController.getResult)
 
 module.exports = router
 
