@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "style": "npx tailwindcss -i ./pubblic/css/input.css -o ./pubblic/css/output.css --watch"
+    "style": "npx tailwindcss -i ./pubblic/css/input.css -o ./pubblic/css/output.css --watch",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
