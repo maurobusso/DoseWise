@@ -16,11 +16,11 @@ module.exports = {
   ],
 }
 
-//postcss.config.js
 
-// module.exports = {
-//   plugins: {
-//     tailwindcss: {},
-//     autoprefixer: {},
-//   }
-// }
+//
+
+// "style": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+// "start": "node server/server.js",
+// "dev": "nodemon server/server.js",
+// "build:css": "npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css",
+// "build": "npm run build:css"
