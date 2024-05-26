@@ -18,6 +18,9 @@ supabase.from('items').select('id').range(0,0)
             console.error('Error connectiong to supabase', response.error.message)
         }
     })
+    .catch(error => {
+        console.error('Error testing Supabase connection:', error);
+    });
 
 //middleware    
 
@@ -38,6 +41,12 @@ app.use(express.json())
 app.set('view engine', 'ejs')
 
 app.use('/', itemRoutes)
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error('An error occurred:', err.message);
+    res.status(500).send('Internal Server Error');
+});
 
 //start server
 app.listen(port, () => {
