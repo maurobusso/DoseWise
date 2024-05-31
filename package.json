@@ -2,11 +2,14 @@
   "name": "fullstack-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "style": "npx tailwindcss -i ./pubblic/css/input.css -o ./pubblic/css/output.css --watch",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "build:css": "npx tailwindcss -i ./pubblic/css/input.css -o ./pubblic/css/output.css",
+    "build": "npm run build:css",
+    "dev": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
