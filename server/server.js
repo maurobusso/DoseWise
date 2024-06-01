@@ -29,7 +29,7 @@ supabase.from('items').select('id').range(0,0)
 app.use(cors())
 
 //serve static files 
-app.use(express.static('pubblic'))
+app.use(express.static('public'))
 
 
 //help server parse requests for strings or array
