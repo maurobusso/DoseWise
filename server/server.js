@@ -29,7 +29,11 @@ supabase.from('items').select('id').range(0,0)
 app.use(cors())
 
 //serve static files 
-app.use(express.static('public'))
+//teh second line is an absolute path which is more verbose but More reliable, 
+//as it always resolves to the intended public directory regardless of the working directory. where the first one 
+//Can be error-prone if the server is started from a different directory.
+//app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '../public')));
 
 
 //help server parse requests for strings or array
