@@ -1,8 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const supabase = require('../config/supabaseConfig')
-const itemRoutes = require('../routes/itemRoutes')
+const supabase = require('./config/supabaseConfig')
+const itemRoutes = require('./routes/itemRoutes')
 
 const app = express();
 
