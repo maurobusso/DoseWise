@@ -1,8 +1,4 @@
-//handle male female inputs
-//with this global variable we achieve the alert only once when female ic checked and not every single time which would be annoing for the user
-
-// const port = process.env.PORT || 8000
-
+//this variable is to show the warning if patient is female
 let warning = false
 
   function toggleMaleFemale(){
@@ -149,23 +145,6 @@ if(form){
     })
   })
 }
-
-
-//get weight value
-
-// document.getElementById("calculateButton").addEventListener("click", async function() {
-//   try {
-//     const response = await fetch("/item/getWeight");
-//     if (!response.ok) {
-//       throw new Error("Network response was not ok");
-//     }
-//     const data = await response.json();
-//     console.log(data);
-//     // Handle the retrieved data here
-//   } catch (error) {
-//     console.error("There was a problem fetching the data:", error);
-//   }
-// });
 
 
 // async function deleteMedication(id) {
